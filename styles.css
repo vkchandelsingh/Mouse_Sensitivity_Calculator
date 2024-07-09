@@ -10,23 +10,35 @@ body {
 
 .container {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
+    flex-direction: column; /* Elements stacked vertically */
     align-items: center; /* Center-align the items */
     width: 100%;
-    max-width: 600px; /* Adjust based on your preference */
+    max-width: 800px; /* Increased width for better layout */
     margin: auto; /* Center the container on the page */
 }
 
+.title {
+    text-align: center;
+    color: #007BFF;
+    width: 100%; /* Full width */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+.content {
+    display: flex;
+    width: 100%; /* Full width to accommodate children side by side */
+}
+
 .inputs, .outputs {
+    flex: 1; /* Each child takes equal space */
     background: white;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 8px;
-    width: 100%; /* Make input and output blocks full width of the container */
 }
 
 .inputs {
-    margin-bottom: 10px; /* Add space between inputs and outputs */
+    margin-right: 10px; /* Space between inputs and outputs */
 }
 
 .outputs {
@@ -50,15 +62,12 @@ input, select {
     font-size: 16px; /* Larger font size for better readability */
 }
 
-h1, h2 {
-    text-align: center;
-    color: #007BFF;
-    width: 100%; /* Ensure headers span the full width */
-}
-
 @media (max-width: 768px) {
-    .container {
-        flex-direction: column; /* Ensure vertical stacking on smaller screens */
-        width: 90%; /* Slightly smaller width on smaller screens */
+    .content {
+        flex-direction: column; /* Stack inputs and outputs vertically on smaller screens */
+    }
+    .inputs {
+        margin-right: 0;
+        margin-bottom: 10px; /* Space between inputs and outputs when stacked */
     }
 }
