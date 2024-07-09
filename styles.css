@@ -1,85 +1,58 @@
-/* styles.css */
-body {
+#mouse-sensitivity-calculator {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     color: #333;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;  /* Center the container horizontally */
-    align-items: center;  /* Center vertically */
-    height: 100vh;  /* Full viewport height */
-}
-
-.container {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    width: 100%;
-    max-width: 800px; /* Adjust based on your preference */
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    padding: 20px;
     border-radius: 8px;
-    overflow: hidden;  /* Ensures nothing spills outside the container */
-    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 800px; /* Adjust width as needed */
+    margin: auto;
 }
 
-.title {
-    text-align: center;
-    padding: 15px;
-    background-color: #007BFF;
-    color: white;
-    font-size: 24px;
-    width: 100%;
-}
-
-.content {
+#mouse-sensitivity-calculator .content {
     display: flex;
-    justify-content: space-between;  /* Distributes space between inputs and outputs */
+    justify-content: space-between; /* Ensures space between inputs and outputs */
 }
 
 .inputs, .outputs {
+    background: white;
     padding: 20px;
-    width: 50%;  /* Allocates half the parent width to each */
+    border-radius: 8px;
+    flex: 1; /* Each takes half of the available space */
+    margin: 5px; /* Adds space between the two sections */
 }
 
 .inputs {
-    border-right: 2px solid #ddd;  /* Adds a visual division between inputs and outputs */
+    /* Additional styling if needed */
 }
 
 .outputs {
-    background-color: #e1f5fe; /* Light blue background for outputs for distinction */
+    background-color: #e1f5fe; /* Light blue background for outputs */
     font-weight: bold; /* Bold font for output results */
 }
 
 label {
     display: block;
-    margin-bottom: 10px;
-    color: #0056b3; /* Dark blue for a professional look */
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #0056b3;
 }
 
 input, select {
     width: 100%;
-    padding: 10px;
+    padding: 8px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 4px;
 }
 
-h2 {
-    margin-top: 0;
+h1, h2 {
+    text-align: center;
     color: #007BFF;
 }
 
 @media (max-width: 768px) {
-    .content {
-        flex-direction: column; /* Stack inputs and outputs vertically on smaller screens */
-    }
-
-    .inputs, .outputs {
-        width: 100%;  /* Full width for each on small screens */
-        border-right: none;
-    }
-
-    .outputs {
-        margin-top: 20px; /* Adds some space between inputs and outputs */
+    #mouse-sensitivity-calculator .content {
+        flex-direction: column; /* Stack vertically on smaller screens */
     }
 }
