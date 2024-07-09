@@ -1,58 +1,84 @@
-#mouse-sensitivity-calculator {
+/* styles.css */
+body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     color: #333;
+    margin: 0;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    max-width: 800px; /* Adjust width as needed */
-    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-#mouse-sensitivity-calculator .content {
+.container {
     display: flex;
-    justify-content: space-between; /* Ensures space between inputs and outputs */
+    flex-direction: column;
+    width: 80%; /* Adjust width of the container */
+    max-width: 1200px; /* Maximum width */
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    background: white;
+    overflow: hidden;
+}
+
+.title {
+    text-align: center;
+    padding: 20px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 24px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .inputs, .outputs {
-    background: white;
+    width: 50%; /* Each section takes half of the content width */
     padding: 20px;
-    border-radius: 8px;
-    flex: 1; /* Each takes half of the available space */
-    margin: 5px; /* Adds space between the two sections */
+    display: flex;
+    flex-direction: column;
 }
 
 .inputs {
-    /* Additional styling if needed */
+    border-right: 2px solid #ccc; /* Separates inputs from outputs visually */
 }
 
 .outputs {
-    background-color: #e1f5fe; /* Light blue background for outputs */
-    font-weight: bold; /* Bold font for output results */
+    background-color: #e1f5fe; /* Light blue background for visual distinction */
+    font-weight: bold;
+    align-items: center; /* Center align the content of outputs */
+    justify-content: center; /* Vertically center in case of fewer items */
 }
 
 label {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+    margin-bottom: 10px;
     color: #0056b3;
 }
 
 input, select {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 20px;
-    border: 2px solid #ccc;
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-}
-
-h1, h2 {
-    text-align: center;
-    color: #007BFF;
+    margin-bottom: 20px;
 }
 
 @media (max-width: 768px) {
-    #mouse-sensitivity-calculator .content {
-        flex-direction: column; /* Stack vertically on smaller screens */
+    .content {
+        flex-direction: column;
+    }
+
+    .inputs, .outputs {
+        width: 100%;
+        border-right: none;
+    }
+
+    .outputs {
+        margin-top: 20px;
     }
 }
