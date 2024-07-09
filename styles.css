@@ -4,7 +4,6 @@ body {
     background-color: #f4f4f4;
     color: #333;
     margin: 0;
-    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,60 +11,51 @@ body {
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    width: 80%; /* Adjust width of the container */
-    max-width: 1200px; /* Maximum width */
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    border-radius: 8px;
+    width: 80%;
+    max-width: 960px;
     background: white;
-    overflow: hidden;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .title {
     text-align: center;
-    padding: 20px;
-    background-color: #007BFF;
     color: white;
+    background-color: #007BFF;
+    padding: 10px 0;
     font-size: 24px;
+    width: 100%;
 }
 
 .content {
     display: flex;
     justify-content: space-between;
-    width: 100%;
 }
 
 .inputs, .outputs {
-    width: 50%; /* Each section takes half of the content width */
+    width: 50%;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
 }
 
 .inputs {
-    border-right: 2px solid #ccc; /* Separates inputs from outputs visually */
+    border-right: 2px solid #ccc;
 }
 
 .outputs {
-    background-color: #e1f5fe; /* Light blue background for visual distinction */
+    background-color: #e1f5fe;
     font-weight: bold;
-    align-items: center; /* Center align the content of outputs */
-    justify-content: center; /* Vertically center in case of fewer items */
 }
 
-label {
-    display: block;
-    margin-bottom: 10px;
-    color: #0056b3;
+label, input, select {
+    width: 100%;
+    margin-bottom: 15px;
 }
 
 input, select {
-    width: 100%;
-    padding: 10px;
+    padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-bottom: 20px;
 }
 
 @media (max-width: 768px) {
