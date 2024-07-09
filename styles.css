@@ -4,7 +4,6 @@ body {
     background-color: #f4f4f4;
     color: #333;
     margin: 0;
-    padding: 20px; /* Added padding around the container */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,16 +12,20 @@ body {
 
 .container {
     width: 80%;
-    max-width: 1500px; /* Increased max-width for better alignment to the screenshot */
+    max-width: 960px;
     background: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    text-align: center; /* Centers the title */
-    margin-bottom: 20px; /* Spacing below the title */
+.title {
+    text-align: center;
+    color: white;
+    background-color: #007BFF;
+    padding: 10px 0;
+    font-size: 24px;
+    width: 100%;
 }
 
 .content {
@@ -31,18 +34,17 @@ h1 {
 }
 
 .inputs, .outputs {
-    width: 48%; /* Minor adjustment for spacing */
+    width: 50%;
     padding: 20px;
 }
 
 .inputs {
-    border-right: 2px solid #ccc; /* Adding a dividing line as per the screenshot */
+    border-right: none;  /* Removing the dividing line */
 }
 
 .outputs {
-    background-color: transparent; /* Removed background color */
+    background-color: #e1f5fe;
     font-weight: bold;
-    padding: 20px; /* Ensures padding inside the results area */
 }
 
 label, input, select {
@@ -56,10 +58,6 @@ input, select {
     border-radius: 4px;
 }
 
-input[disabled] {
-    background-color: #f9f9f9; /* Light grey background for disabled output fields */
-}
-
 @media (max-width: 768px) {
     .content {
         flex-direction: column;
@@ -67,7 +65,7 @@ input[disabled] {
 
     .inputs, .outputs {
         width: 100%;
-        border-right: none;  /* Ensures no border in mobile view */
+        border-right: none;  /* Ensures no border in mobile view as well */
     }
 
     .outputs {
