@@ -39,7 +39,7 @@ body {
 }
 
 .inputs {
-    border-right: 2px solid #ccc;
+    border-right: none;  /* Removing the dividing line */
 }
 
 .outputs {
@@ -65,10 +65,10 @@ input, select {
 
     .inputs, .outputs {
         width: 100%;
-        border-right: none;
+        border-right: none;  /* Ensures no border in mobile view as well */
     }
 
     .outputs {
-        margin-top: 20px;
+        margin-top: 20px;  /* Adds visual separation in stacked view */
     }
 }
