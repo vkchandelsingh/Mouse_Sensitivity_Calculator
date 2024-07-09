@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 const gameConstants = {
-    "Aim Lab": 0.05,
+  "Aim Lab": 0.05,
     "Apex Legends": 0.021997,
     "Arena Breakout: Infinite": 0.102459,
     "ARK: Survival Evolved": 0.174825,
@@ -84,18 +84,18 @@ const gameConstants = {
     "Deep Rock Galactic": 0.013365,
     "Diabotical": 0.021997,
     "Dirty Bomb": 0.005493
-    // Include all other games and their constants
+
+    // Include all game constants as provided earlier
 };
 
 function populateGames() {
     const originSelect = document.getElementById('origin-game');
     const targetSelect = document.getElementById('target-game');
-    for (const game in gameConstants) {
+    Object.keys(gameConstants).forEach(game => {
         let option = new Option(game, game);
-        originSelect.add(option.cloneNode(true)); // CloneNode for the same option in both selects
-        targetSelect.add(option);
-    }
-    calculateSensitivity(); // Perform an initial calculation with default values
+        originSelect.add(option.cloneNode(true));
+        targetSelect.add(option.cloneNode(true));
+    });
 }
 
 function calculateSensitivity() {
@@ -105,24 +105,17 @@ function calculateSensitivity() {
     const dpi = parseFloat(document.getElementById('dpi').value);
 
     if (!originSensitivity || !dpi) {
-        document.getElementById('target-sensitivity').textContent = 'Please enter all values';
-        document.getElementById('in-per-360').textContent = '';
-        document.getElementById('cm-per-360').textContent = '';
+        alert('Please enter all values');
         return;
     }
 
     const originConstant = gameConstants[originGame];
     const targetConstant = gameConstants[targetGame];
-
-    const targetSensitivity = preciseRound((originSensitivity * originConstant) / targetConstant, 3);
-    const inPer360 = preciseRound(360 / (targetSensitivity * dpi * targetConstant), 2);
-    const cmPer360 = preciseRound(inPer360 * 2.54, 2);
+    const targetSensitivity = ((originSensitivity * originConstant) / targetConstant).toFixed(3);
+    const inPer360 = (360 / (targetSensitivity * dpi * targetConstant)).toFixed(2);
+    const cmPer360 = (inPer360 * 2.54).toFixed(2);
 
     document.getElementById('target-sensitivity').textContent = targetSensitivity;
     document.getElementById('in-per-360').textContent = inPer360;
     document.getElementById('cm-per-360').textContent = cmPer360;
-}
-
-function preciseRound(value, decimals) {
-    return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
 }
