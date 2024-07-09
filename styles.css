@@ -1,0 +1,64 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    justify-content: center;  /* Center the container horizontally */
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center-align the items */
+    width: 100%;
+    max-width: 600px; /* Adjust based on your preference */
+    margin: auto; /* Center the container on the page */
+}
+
+.inputs, .outputs {
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    width: 100%; /* Make input and output blocks full width of the container */
+}
+
+.inputs {
+    margin-bottom: 10px; /* Add space between inputs and outputs */
+}
+
+.outputs {
+    background-color: #e1f5fe; /* Light blue background for outputs for distinction */
+    font-weight: bold; /* Bold font for output results */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #0056b3; /* Darker blue for labels */
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px; /* Larger font size for better readability */
+}
+
+h1, h2 {
+    text-align: center;
+    color: #007BFF;
+    width: 100%; /* Ensure headers span the full width */
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Ensure vertical stacking on smaller screens */
+        width: 90%; /* Slightly smaller width on smaller screens */
+    }
+}
