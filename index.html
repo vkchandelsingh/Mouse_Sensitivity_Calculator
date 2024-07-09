@@ -1,39 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mouse Sensitivity Converter</title>
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Sensitivity Calculator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Mouse Sensitivity Calculator</h1>
     <div class="container">
-        <div class="inputs">
-            <label for="origin-game">Origin Game:</label>
-            <select id="origin-game" onchange="calculateSensitivity()">
-                <!-- Options will be populated by JavaScript -->
-            </select>
-
-            <label for="target-game">Target Game:</label>
-            <select id="target-game" onchange="calculateSensitivity()">
-                <!-- Options will be populated by JavaScript -->
-            </select>
-
-            <label for="origin-sensitivity">Game Sensitivity:</label>
-            <input type="number" id="origin-sensitivity" step="any" oninput="calculateSensitivity()">
-
-            <label for="dpi">Mouse DPI:</label>
-            <input type="number" id="dpi" value="800" step="any" oninput="calculateSensitivity()">
-        </div>
-
-        <div class="outputs">
-            <h2>Results:</h2>
-            <p>Game Sensitivity: <span id="target-sensitivity"></span></p>
-            <p>In/360: <span id="in-per-360"></span></p>
-            <p>Cm/360: <span id="cm-per-360"></span></p>
+        <h1>Mouse Sensitivity Calculator</h1>
+        <div class="content">
+            <div class="inputs">
+                <label for="origin-game">Origin Game:</label>
+                <select id="origin-game" onchange="calculateSensitivity()"></select>
+                <label for="target-game">Target Game:</label>
+                <select id="target-game" onchange="calculateSensitivity()"></select>
+                <label for="origin-sensitivity">Game Sensitivity:</label>
+                <input type="number" id="origin-sensitivity" oninput="calculateSensitivity()">
+                <label for="dpi">Mouse DPI:</label>
+                <input type="number" id="dpi" value="800" oninput="calculateSensitivity()">
+            </div>
+            <div class="outputs">
+                <h2>Results:</h2>
+                <p>Game Sensitivity: <span id="target-sensitivity"></span></p>
+                <p>In/360: <span id="in-per-360"></span></p>
+                <p>Cm/360: <span id="cm-per-360"></span></p>
+            </div>
         </div>
     </div>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
