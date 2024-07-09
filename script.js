@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     populateGames();
-    calculateSensitivity(); // Calculate with initial values on load
+    // calculateSensitivity(); // Remove or comment out this line if it's directly calling on load
 });
 
 const gameConstants = {
@@ -85,7 +85,7 @@ const gameConstants = {
     "Diabotical": 0.021997,
     "Dirty Bomb": 0.005493
 
-    // Include all game constants as provided earlier
+    // Your game constants here
 };
 
 function populateGames() {
@@ -101,11 +101,13 @@ function populateGames() {
 function calculateSensitivity() {
     const originGame = document.getElementById('origin-game').value;
     const targetGame = document.getElementById('target-game').value;
-    const originSensitivity = parseFloat(document.getElementById('origin-sensitivity').value);
-    const dpi = parseFloat(document.getElementById('dpi').value);
+    const originSensitivity = parseFloat(document.getElementById('origin-sensitivity').value || 0);
+    const dpi = parseFloat(document.getElementById('dpi').value || 0);
 
-    if (!originSensitivity || !dpi) {
-        alert('Please enter all values');
+    // Check if all required fields are filled
+    if (!originSensitivity || !dpi || !originGame || !targetGame) {
+        // Optionally, you could remove this alert if it's not desired on empty fields
+        // alert('Please enter all values');
         return;
     }
 
