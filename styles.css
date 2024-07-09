@@ -1,48 +1,33 @@
-/* styles.css */
-body {
+#mouse-sensitivity-calculator {
     font-family: 'Arial', sans-serif;
-    padding: 20px;
     background-color: #f4f4f4;
     color: #333;
-    display: flex;
-    justify-content: center;  /* Center the container horizontally */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 800px; /* Adjust width as needed */
+    margin: auto;
 }
 
-.container {
+#mouse-sensitivity-calculator .content {
     display: flex;
-    flex-direction: column; /* Elements stacked vertically */
-    align-items: center; /* Center-align the items */
-    width: 100%;
-    max-width: 800px; /* Increased width for better layout */
-    margin: auto; /* Center the container on the page */
-}
-
-.title {
-    text-align: center;
-    color: #007BFF;
-    width: 100%; /* Full width */
-    margin-bottom: 20px; /* Space below the title */
-}
-
-.content {
-    display: flex;
-    width: 100%; /* Full width to accommodate children side by side */
+    justify-content: space-between; /* Ensures space between inputs and outputs */
 }
 
 .inputs, .outputs {
-    flex: 1; /* Each child takes equal space */
     background: white;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 8px;
+    flex: 1; /* Each takes half of the available space */
+    margin: 5px; /* Adds space between the two sections */
 }
 
 .inputs {
-    margin-right: 10px; /* Space between inputs and outputs */
+    /* Additional styling if needed */
 }
 
 .outputs {
-    background-color: #e1f5fe; /* Light blue background for outputs for distinction */
+    background-color: #e1f5fe; /* Light blue background for outputs */
     font-weight: bold; /* Bold font for output results */
 }
 
@@ -50,7 +35,7 @@ label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #0056b3; /* Darker blue for labels */
+    color: #0056b3;
 }
 
 input, select {
@@ -59,15 +44,15 @@ input, select {
     margin-bottom: 20px;
     border: 2px solid #ccc;
     border-radius: 4px;
-    font-size: 16px; /* Larger font size for better readability */
+}
+
+h1, h2 {
+    text-align: center;
+    color: #007BFF;
 }
 
 @media (max-width: 768px) {
-    .content {
-        flex-direction: column; /* Stack inputs and outputs vertically on smaller screens */
-    }
-    .inputs {
-        margin-right: 0;
-        margin-bottom: 10px; /* Space between inputs and outputs when stacked */
+    #mouse-sensitivity-calculator .content {
+        flex-direction: column; /* Stack vertically on smaller screens */
     }
 }
