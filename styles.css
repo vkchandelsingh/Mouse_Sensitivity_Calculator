@@ -4,73 +4,85 @@ body {
     background-color: #f4f4f4;
     color: #333;
     margin: 0;
-    padding: 20px; /* Added padding around the container */
+    padding: 5px; /* Slightly reduced to prevent overflow */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .container {
-    width: 80%;
-    max-width: 1500px; /* Increased max-width for better alignment to the screenshot */
+    width: 100%; /* Utilize full width for mobile optimization */
+    max-width: 960px; /* Suitable max-width for larger screens */
     background: white;
-    padding: 20px;
+    padding: 15px; /* Ensure padding does not cause overflow */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 h1 {
-    text-align: center; /* Centers the title */
-    margin-bottom: 20px; /* Spacing below the title */
+    text-align: center;
+    margin-bottom: 10px; /* Reduced margin to manage space */
 }
 
 .content {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Default to column for mobile-first design */
+    width: 100%; /* Ensure content does not overflow */
 }
 
 .inputs, .outputs {
-    width: 48%; /* Minor adjustment for spacing */
-    padding: 20px;
+    width: 100%; /* Ensure input and output containers use full width */
+    box-sizing: border-box; /* Manage padding and borders within the width */
 }
 
 .inputs {
-    border-right: 2px solid #ccc; /* Adding a dividing line as per the screenshot */
+    border-bottom: 1px solid #ccc; /* Subtle separation between sections */
 }
 
 .outputs {
-    background-color: transparent; /* Removed background color */
+    background-color: transparent;
     font-weight: bold;
-    padding: 20px; /* Ensures padding inside the results area */
+    padding-top: 20px; /* Add some space above outputs for clarity */
 }
 
 label, input, select {
-    width: 100%;
-    margin-bottom: 15px;
+    width: 100%; /* Ensure full width usage to maximize space */
+    margin-bottom: 10px; /* Reduce bottom margin to tighten layout */
+    box-sizing: border-box; /* Include padding and border within the element's size */
 }
 
 input, select {
-    padding: 8px;
+    padding: 12px; /* Slightly larger padding for better touch interaction */
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
 input[disabled] {
-    background-color: #f9f9f9; /* Light grey background for disabled output fields */
+    background-color: #f9f9f9; /* Distinguish disabled inputs visually */
 }
 
-@media (max-width: 768px) {
+@media (min-width: 769px) {
+    .container {
+        width: 80%; /* Adjust width for desktop view */
+    }
+
     .content {
-        flex-direction: column;
+        flex-direction: row; /* Row layout for more space on larger screens */
     }
 
     .inputs, .outputs {
-        width: 100%;
-        border-right: none;  /* Ensures no border in mobile view */
+        width: 48%; /* Balance the width of inputs and outputs sections */
+        padding: 20px; /* More padding for a spacious layout */
+    }
+
+    .inputs {
+        border-right: 2px solid #ccc; /* Restore vertical border for desktop */
+        border-bottom: none; /* Remove bottom border on larger screens */
     }
 
     .outputs {
-        margin-top: 20px;  /* Adds visual separation in stacked view */
+        margin-top: 0; /* Align outputs directly adjacent to inputs */
     }
 }
