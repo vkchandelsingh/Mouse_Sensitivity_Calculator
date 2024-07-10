@@ -17,8 +17,8 @@
                 <label for="target-game">Target Game:</label>
                 <select id="target-game" onchange="calculateSensitivity()"></select>
 
-                <label for="origin-sensitivity">Game Sensitivity:</label>
-                <input type="number" id="origin-sensitivity" oninput="calculateSensitivity()">
+                <label for="origin-sensitivity">Input Game Sensitivity:</label>
+                <input type="number" id="origin-sensitivity" oninput="calculateSensitivity()" placeholder="Origin Game Sensitivity">
 
                 <label for="dpi">Mouse DPI:</label>
                 <input type="number" id="dpi" value="800" oninput="calculateSensitivity()">
@@ -26,13 +26,13 @@
             <div class="outputs">
                 <h2>Results:</h2>
                 <label>Game Sensitivity:</label>
-                <input type="text" id="target-sensitivity" disabled>
+                <input type="text" id="target-sensitivity" value="0" disabled>
 
                 <label>In/360:</label>
-                <input type="text" id="in-per-360" disabled>
+                <input type="text" id="in-per-360" value="0" disabled>
 
                 <label>Cm/360:</label>
-                <input type="text" id="cm-per-360" disabled>
+                <input type="text" id="cm-per-360" value="0" disabled>
             </div>
         </div>
     </div>
