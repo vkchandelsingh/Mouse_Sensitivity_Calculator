@@ -83,7 +83,6 @@ const gameConstants = {
     "Deep Rock Galactic": 0.013365,
     "Diabotical": 0.021997,
     "Dirty Bomb": 0.005493
-    // Add other games as needed
     "Valorant": 0.070028,
     "Warface": 0.003333,
     // Continue listing games...
