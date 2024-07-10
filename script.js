@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     populateGames();
-    // calculateSensitivity(); // Remove or comment out this line if it's directly calling on load
 });
 
 const gameConstants = {
-  "Aim Lab": 0.05,
+    "Aim Lab": 0.05,
     "Apex Legends": 0.021997,
     "Arena Breakout: Infinite": 0.102459,
     "ARK: Survival Evolved": 0.174825,
@@ -84,40 +83,44 @@ const gameConstants = {
     "Deep Rock Galactic": 0.013365,
     "Diabotical": 0.021997,
     "Dirty Bomb": 0.005493
-
-    // Your game constants here
+    // Add other games as needed
+    "Valorant": 0.070028,
+    "Warface": 0.003333,
+    // Continue listing games...
 };
 
 function populateGames() {
     const originSelect = document.getElementById('origin-game');
     const targetSelect = document.getElementById('target-game');
-    Object.keys(gameConstants).forEach(game => {
+    for (const game in gameConstants) {
         let option = new Option(game, game);
         originSelect.add(option.cloneNode(true));
         targetSelect.add(option.cloneNode(true));
-    });
+    }
 }
 
 function calculateSensitivity() {
     const originGame = document.getElementById('origin-game').value;
     const targetGame = document.getElementById('target-game').value;
-    const originSensitivity = parseFloat(document.getElementById('origin-sensitivity').value || 0);
-    const dpi = parseFloat(document.getElementById('dpi').value || 0);
+    const originSensitivity = parseFloat(document.getElementById('origin-sensitivity').value);
+    const dpi = parseFloat(document.getElementById('dpi').value);
 
-    // Check if all required fields are filled
-    if (!originSensitivity || !dpi || !originGame || !targetGame) {
-        // Optionally, you could remove this alert if it's not desired on empty fields
-        // alert('Please enter all values');
+    // Ensure all fields have valid inputs before calculating
+    if (!originSensitivity || !dpi || !gameConstants[originGame] || !gameConstants[targetGame]) {
+        // Show alert only if any field is empty or invalid
+        console.log('Please enter all valid values before calculating.');
         return;
     }
 
     const originConstant = gameConstants[originGame];
     const targetConstant = gameConstants[targetGame];
-    const targetSensitivity = ((originSensitivity * originConstant) / targetConstant).toFixed(3);
-    const inPer360 = (360 / (targetSensitivity * dpi * targetConstant)).toFixed(2);
+    const convertedSensitivity = ((originSensitivity * originConstant) / targetConstant).toFixed(3);
+    const inPer360 = (360 / (convertedSensitivity * dpi * targetConstant)).toFixed(2);
     const cmPer360 = (inPer360 * 2.54).toFixed(2);
 
-    document.getElementById('target-sensitivity').textContent = targetSensitivity;
-    document.getElementById('in-per-360').textContent = inPer360;
-    document.getElementById('cm-per-360').textContent = cmPer360;
+    // Assuming your HTML includes input fields or spans to show these results
+    document.getElementById('target-sensitivity').value = convertedSensitivity;
+    document.getElementById('in-per-360').value = inPer360;
+    document.getElementById('cm-per-360').value = cmPer360;
 }
+
